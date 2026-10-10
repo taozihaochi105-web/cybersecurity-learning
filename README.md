@@ -16,5 +16,6 @@ This repository records my cybersecurity learning journey.
 - XSS
 - CSRF
 - SSRF
+- brute force
 - Docker
 - Redis
