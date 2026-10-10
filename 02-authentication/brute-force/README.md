@@ -3,28 +3,27 @@
 > **Lab environment:** Pikachu Web Vulnerability Testing Platform  
 > **Purpose:** Educational testing in an authorized local environment only.
 
-## 1. What I Wanted to Understand
+## Overview
 
-When learning brute-force attacks, I initially thought the process was simply:
+During my learning, I encountered three different cases involving brute-force protection mechanisms.
 
-```text
-Username + Password Dictionary
-          ↓
-      Send Requests
-          ↓
-     Find Correct Password
-```
+## Cases
 
-However, real login pages often introduce additional mechanisms such as:
+1. [Dynamic CSRF Token During Brute Force](./01-dynamic-csrf-token.md)
+2. [CAPTCHA Validation Only on the Client Side](./02-client-side-captcha.md)
+3. [Server-Side CAPTCHA Validation but CAPTCHA Reuse](./03-reusable-captcha.md)
 
-- CSRF tokens
-- CAPTCHA
-- Session state
-- Request validation
-- Rate limiting
+## Key Questions I Learned to Ask
 
-During my experiments, I encountered three interesting cases:
+- Where is the validation performed?
+- Is the control enforced on the client or server?
+- Is the value bound to the session?
+- Does the value change after each request?
+- Can the same value be reused?
+- What server-side state changes after each request?
 
-1. A CSRF token changes after every request.
-2. CAPTCHA validation exists only on the client side.
-3. CAPTCHA is validated by the server but can be reused.
+## Key Takeaway
+
+The important part of brute-force testing is not simply sending many password attempts.
+
+I need to understand how the application manages state, tokens, CAPTCHA values, sessions, and validation logic across requests.
